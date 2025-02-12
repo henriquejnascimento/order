@@ -1,0 +1,23 @@
+services:
+  order-db:
+    image: postgres:17.2
+    restart: no
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ORDER
+#    healthcheck:
+#      test: ["CMD-SHELL", "pg_isready"]
+#      interval: 1s
+#      timeout: 5s
+#      retries: 10
+    volumes:
+      - ./data:/var/lib/postgresql/data
+#  adminer:
+#    image: adminer
+#    restart: always
+#    ports:
+#      - 8080:8080
+ 
